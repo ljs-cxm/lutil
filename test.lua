@@ -5,6 +5,10 @@ local right = " \t\n   "
 local x = "123 \t\n abc hello world"
 
 
+assert(lutil.trim("") == "")
+assert(lutil.trim(left) == "")
+assert(lutil.trim(right) == "")
+
 assert(lutil.trim(left .. x .. right) == x)
 
 assert(lutil.ltrim(left .. x .. right) == x .. right)
