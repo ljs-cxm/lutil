@@ -4,6 +4,8 @@
 #include "lsplit.h"
 #include "ltrim.h"
 
+#define LUTIL_VERSION "0.0.1"
+
 static const struct luaL_Reg lutil_lib[] = {{"trim", lutil_trim},
                                             {"ltrim", lutil_ltrim},
                                             {"rtrim", lutil_rtrim},
