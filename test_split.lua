@@ -1,3 +1,5 @@
+package.cpath = package.cpath .. ";?.dylib"
+
 local cjson = require "cjson.safe"
 local lutil = require "lutil"
 

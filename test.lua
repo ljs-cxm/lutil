@@ -1,3 +1,5 @@
+package.cpath = package.cpath .. ";?.dylib"
+
 local lutil = require "lutil"
 
 local left = "\t \n "
