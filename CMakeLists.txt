@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 project(lutil C)
 
-SET(_POSSIBLE_LUA_INCLUDE lua51 lua5.1 lua-5.1 luajit-2.0 luajit-2.1)
-FIND_PATH(LUA_INCLUDE_DIR
+set(_POSSIBLE_LUA_INCLUDE lua51 lua5.1 lua-5.1 luajit-2.0 luajit-2.1)
+find_path(LUA_INCLUDE_DIR
     NAMES lua.h
     HINTS $ENV{LUA_DIR}
     PATHS ${CMAKE_CURRENT_SOURCE_DIR} /usr/include /usr/local/include
@@ -17,7 +17,7 @@ else()
 endif()
 
 if(UNIX)
-    SET(EXTRA_C_FLAGS "-g -O2 -fomit-frame-pointer -Wall")
+    set(EXTRA_C_FLAGS "-g -O2 -fomit-frame-pointer -Wall")
     if(APPLE)
         set(LINK_FLAGS "-dynamiclib -single_module -undefined dynamic_lookup")
     else(APPLE)
