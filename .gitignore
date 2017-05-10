@@ -1,6 +1,13 @@
 *.dSYM/
 *.dylib
-build
+
+build/
+
+CMakeFiles/
+CMakeScripts/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
 
 *.o
 *.so

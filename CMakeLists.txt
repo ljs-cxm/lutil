@@ -17,7 +17,7 @@ else()
 endif()
 
 if(UNIX)
-    set(EXTRA_C_FLAGS "-g -O2 -fomit-frame-pointer -Wall")
+    set(EXTRA_C_FLAGS "-O3 -Wall -pedantic -fomit-frame-pointer -Wall -DNDEBUG")
     if(APPLE)
         set(LINK_FLAGS "-dynamiclib -single_module -undefined dynamic_lookup")
     else(APPLE)

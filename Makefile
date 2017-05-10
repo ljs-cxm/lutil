@@ -5,7 +5,7 @@ INCLUDES= -I$(PWD) -I$(PWD)/lua5.1
 LUA= lua
 
 CC= gcc
-CCOPT= -O2 -fomit-frame-pointer
+CCOPT= -O3 -Wall -pedantic -fomit-frame-pointer -Wall -DNDEBUG
 CCWARN= -Wall
 SOCC= $(CC) -shared
 SOCFLAGS= -fPIC $(CCOPT) $(CCWARN) $(DEFINES) $(INCLUDES) $(CFLAGS)
