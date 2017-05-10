@@ -21,3 +21,6 @@ t(text, ".", 1)
 t(text, "^,%s*")
 t(text, ",+")
 t(text, ",%+")
+
+t(" a b c ", " ")
+t(lutil.trim(" a b c "), " ")
