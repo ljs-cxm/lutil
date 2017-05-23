@@ -41,6 +41,7 @@ include_directories(
 set(SOURCES
     ltrim.c
     lsplit.c
+    lip.c
     lutil.c
     )
 

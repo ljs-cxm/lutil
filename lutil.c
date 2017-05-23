@@ -3,14 +3,17 @@
 
 #include "lsplit.h"
 #include "ltrim.h"
+#include "lip.h"
 
 #define LUTIL_VERSION "0.0.1"
 
-static const struct luaL_Reg lutil_lib[] = {{"trim", lutil_trim},
-                                            {"ltrim", lutil_ltrim},
-                                            {"rtrim", lutil_rtrim},
-                                            {"split", lutil_split},
-                                            {NULL, NULL}};
+static const struct luaL_Reg lutil_lib[] = {
+    {"trim", lutil_trim},
+    {"ltrim", lutil_ltrim},
+    {"rtrim", lutil_rtrim},
+    {"split", lutil_split},
+    {"ip_to_number", lutil_ip_to_number},
+    {NULL, NULL}};
 
 int luaopen_lutil(lua_State *L) {
 #if LUA_VERSION_NUM < 502

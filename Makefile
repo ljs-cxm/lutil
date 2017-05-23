@@ -14,6 +14,7 @@ RM= rm -f
 
 DEP_TRIM= ltrim
 DEP_SPLIT= lsplit
+DEP_IP= lip
 MODNAME= lutil
 MODSO= $(MODNAME).so
 
@@ -29,10 +30,13 @@ $(DEP_TRIM).o: $(DEP_TRIM).c
 $(DEP_SPLIT).o: $(DEP_SPLIT).c
 	$(CC) $(SOCFLAGS) -c -o $@ $<
 
+$(DEP_IP).o: $(DEP_IP).c
+	$(CC) $(SOCFLAGS) -c -o $@ $<
+
 $(MODNAME).o: $(MODNAME).c
 	$(CC) $(SOCFLAGS) -c -o $@ $<
 
-$(MODSO): $(MODNAME).o $(DEP_TRIM).o $(DEP_SPLIT).o
+$(MODSO): $(MODNAME).o $(DEP_TRIM).o $(DEP_SPLIT).o $(DEP_IP).o
 	$(SOCC) $(SOLDFLAGS) -o $(MODSO) $^
 
 test:
