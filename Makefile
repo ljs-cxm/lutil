@@ -12,9 +12,10 @@ SOCFLAGS= -fPIC $(CCOPT) $(CCWARN) $(DEFINES) $(INCLUDES) $(CFLAGS)
 SOLDFLAGS= -fPIC $(LDFLAGS)
 RM= rm -f
 
-DEP_TRIM= ltrim
-DEP_SPLIT= lsplit
 DEP_IP= lip
+DEP_TRIM= ltrim
+DEP_TIME= ltime
+DEP_SPLIT= lsplit
 MODNAME= lutil
 MODSO= $(MODNAME).so
 
@@ -24,19 +25,22 @@ all: $(MODSO)
 macosx:
 	$(MAKE) all "SOCC=MACOSX_DEPLOYMENT_TARGET=10.4 $(CC) -dynamiclib -single_module -undefined dynamic_lookup"
 
+$(DEP_IP).o: $(DEP_IP).c
+	$(CC) $(SOCFLAGS) -c -o $@ $<
+
 $(DEP_TRIM).o: $(DEP_TRIM).c
+	$(CC) $(SOCFLAGS) -c -o $@ $<
+
+$(DEP_TIME).o: $(DEP_TIME).c
 	$(CC) $(SOCFLAGS) -c -o $@ $<
 
 $(DEP_SPLIT).o: $(DEP_SPLIT).c
 	$(CC) $(SOCFLAGS) -c -o $@ $<
 
-$(DEP_IP).o: $(DEP_IP).c
-	$(CC) $(SOCFLAGS) -c -o $@ $<
-
 $(MODNAME).o: $(MODNAME).c
 	$(CC) $(SOCFLAGS) -c -o $@ $<
 
-$(MODSO): $(MODNAME).o $(DEP_TRIM).o $(DEP_SPLIT).o $(DEP_IP).o
+$(MODSO): $(MODNAME).o $(DEP_IP).o $(DEP_TRIM).o $(DEP_TIME).o $(DEP_SPLIT).o
 	$(SOCC) $(SOLDFLAGS) -o $(MODSO) $^
 
 test:
