@@ -59,7 +59,7 @@ $(BLOOM_FILTER_MOD): $(BLOOM_FILTER_NAME).o $(XXHASH).o
 	$(SOCC) $(SOLDFLAGS) -o $@ $^
 
 libgzip.so: gzip.c
-	$(CC) $(CCOPT) -fPIC -shared $< -o $@ -lz
+	$(CC) $(CCOPT) $(LGZIPFLAGS) -fPIC -shared $< -o $@ -lz
 
 test:
 	lua test.lua
