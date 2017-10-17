@@ -61,6 +61,9 @@ $(BLOOM_FILTER_MOD): $(BLOOM_FILTER_NAME).o $(XXHASH).o
 libgzip.so: gzip.c
 	$(CC) $(CCOPT) $(LGZIPFLAGS) -fPIC -shared $< -o $@ -lz
 
+libflvmeta.so: flvmeta.c
+	$(CC) $(CCOPT) -fPIC -shared $< -o $@
+
 test:
 	lua test.lua
 
