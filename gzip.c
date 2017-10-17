@@ -26,19 +26,19 @@ int gzip_compress(uint8_t *src, size_t srclen, uint8_t *dest, size_t *destlen,
   rc = deflateInit2(&zstream, level, Z_DEFLATED, wbits + 16, memlevel,
                     Z_DEFAULT_STRATEGY);
   if (rc != Z_OK) {
-    return 1;
+    return __LINE__;
   }
 
   rc = deflate(&zstream, Z_FINISH);
   if (rc != Z_STREAM_END) {
-    return 2;
+    return __LINE__;
   }
 
   *destlen -= zstream.avail_out;
 
   rc = deflateEnd(&zstream);
   if (rc != Z_OK) {
-    return 3;
+    return __LINE__;
   }
 
   return 0;
