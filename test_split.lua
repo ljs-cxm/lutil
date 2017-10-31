@@ -24,3 +24,5 @@ t(text, ",%+")
 
 t(" a b c ", " ")
 t(lutil.trim(" a b c "), " ")
+
+t("a ,\tb\t,\tc \t \t, \t\td,", "[ \t]*,[ \t]*")
